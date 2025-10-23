@@ -1,0 +1,454 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Restaurant menu API",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/allergens": {
+      "get": {
+         "tags": [
+          "allergens"
+        ],
+        "operationId": "findAllergens",
+        "summary": "Find allergens",
+        "description": "Retrieves all existing allergens\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n    \"allergens\": [\n        {\n            \"id\": \"1\",\n            \"name\": \"peanuts\"\n    }\n    ]\n}"
+            }
+          }
+        }
+      },
+      "post": {
+         "tags": [
+          "allergens"
+        ],
+        "operationId": "createAllergen",
+        "summary": "Create allergen",
+        "description": "Creates a new allergen with provided properties.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n      \"id\": \"1\",\n            \"name\": \"peanuts\"\n    }"
+            }
+          }
+        }
+      }
+    },
+    "/allergens/{allergenId}": {
+      "parameters": [
+        {
+          "name": "allergenId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The account ID of the owner of the specified instance.\n"
+        }
+      ],
+      "get": {
+        "tags": [
+          "allergens"
+        ],
+        "operationId": "getAllergen",
+        "summary": "Get allergen",
+        "description": "Retrieves an allergen with a specific ID.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n      \"id\": \"1\",\n            \"name\": \"peanuts\"\n    }"
+            }
+          }
+        }
+      },
+        "delete": {
+        "tags": [
+          "allergens"
+        ],            
+        "operationId": "deleteAllergen",
+        "summary": "Delete allergen",
+        "description": "Deletes an allergen with a specific ID.\n",
+        "produces": [],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          }
+        }
+      },
+      "patch": {
+         "tags": [
+          "allergens"
+        ],
+        "operationId": "updateAllergen",
+        "summary": "Update allergen",
+        "description": "Updates an allergen with a specific ID.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n      \"id\": \"1\",\n            \"name\": \"Updatedpeanuts\"\n    }"
+            }
+          }
+        }
+      }
+    },
+    "/allergens/dish/{dishId}": {
+         "parameters": [
+        {
+          "name": "dishId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The account ID of the owner of the specified instance.\n"
+        }
+      ],
+      "get": {
+        "tags": [
+          "allergens"
+        ],
+        "operationId": "getAllergensByDish",
+        "summary": "List allergens in dish",
+        "description": "Retrieves all allergens belonging to the dish with specific ID.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n    \"allergens\": [\n        {\n            \"id\": \"7\",\n            \"name\": \"mango\"\n    },\n   {\n            \"id\": \"8\",\n            \"name\": \"fish\"\n    }\n  ]\n}"
+            }
+          }
+        }
+      }
+    },
+    "/types": {
+      "get": {
+        "tags": [
+          "types"
+        ],
+        "operationId": "findTypes",
+        "summary": "List types",
+        "description": "Retrieves all existing dish types.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n    \"types\": [\n        {\n            \"id\": \"1\",\n            \"name\": \"medium\",\n   \"weight\": 200\n  },\n   {\n            \"id\": \"2\",\n            \"name\": \"large\",\n   \"weight\": 400\n   },\n {\n            \"id\": \"3\",\n            \"name\": \"small\",\n   \"weight\": 50\n   }\n ]\n}"
+            }
+          }
+        }
+      },
+      "post": {
+         "tags": [
+          "types"
+        ],
+        "operationId": "createType",
+        "summary": "Create type",
+        "description": "Creates a new dish type with provided properties.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+                "application/json": "{\n            \"id\": \"1\",\n            \"name\": \"medium\",\n   \"weight\": 200\n  }\n"
+            }
+          }
+        }
+      }
+    },
+    "/types/{typeId}": {
+      "parameters": [
+        {
+          "name": "typeId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The account ID of the owner of the specified instance.\n"
+        }
+      ],
+      "get": {
+        "tags": [
+          "types"
+        ],
+        "operationId": "getType",
+        "summary": "Get type",
+        "description": "Retrieves a type with a specific ID.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+                "application/json": "{\n            \"id\": \"1\",\n            \"name\": \"medium\",\n   \"weight\": 200\n  }\n"
+            }
+          }
+        }
+      },
+        "delete": {
+        "tags": [
+          "types"
+        ],            
+        "operationId": "deleteType",
+        "summary": "Delete type",
+        "description": "Deletes a type with a specific ID.\n",
+        "produces": [],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          }
+        }
+      },
+      "patch": {
+         "tags": [
+          "types"
+        ],
+        "operationId": "updateType",
+        "summary": "Update type",
+        "description": "Updates a type with a specific ID.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+                "application/json": "{\n            \"id\": \"1\",\n            \"name\": \"medium-large\",\n   \"weight\": 250\n  }\n"
+            }
+          }
+        }
+      }
+    },
+    "/dishes": {
+      "get": {
+        "tags": [
+          "dishes"
+        ],
+        "operationId": "findDishes",
+        "summary": "List dishes",
+        "description": "Retrieves all existing dishess.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n    \"dishes\": [\n {\n  \"id\": \"1\",\n  \"name\": \"sushi\",\n   \"price\": 200.0,\n   \"taste\": \"salty\",\n   \"cuisine\": \"Japan\",\n   \"type\": {\n \"id\": \"3\",\n  \"name\": \"large\",\n  \"weight\": \"400\"\n \n}, \"allergens\": [\n        {\n            \"id\": \"7\",\n            \"name\": \"fish\"\n    },\n  {\n            \"id\": \"8\",\n            \"name\": \"mango\"\n    }\n  ] }\n  ]\n}"
+            }
+          }
+        }
+      },
+      "post": {
+         "tags": [
+          "dishes"
+        ],
+        "operationId": "createDish",
+        "summary": "Create dish",
+        "description": "Creates a new dish with provided properties.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": " {\n  \"id\": \"1\",\n  \"name\": \"sushi\",\n   \"price\": 200.0,\n   \"taste\": \"salty\",\n   \"cuisine\": \"Japan\",\n   \"type\": {\n \"id\": \"3\",\n  \"name\": \"large\",\n  \"weight\": \"400\"\n \n}, \"allergens\": [\n      ] }\n"
+            }
+          }
+        }
+      }
+    },
+     "/dishes/{dishId}": {
+      "parameters": [
+        {
+          "name": "dishId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The account ID of the owner of the specified instance.\n"
+        }
+      ],
+      "get": {
+        "tags": [
+          "dishes"
+        ],
+        "operationId": "getDish",
+        "summary": "Get dish",
+        "description": "Retrieves a dish with a specific ID.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n  \"id\": \"1\",\n  \"name\": \"sushi\",\n   \"price\": 200.0,\n   \"taste\": \"salty\",\n   \"cuisine\": \"Japan\",\n   \"type\": {\n \"id\": \"3\",\n  \"name\": \"large\",\n  \"weight\": \"400\"\n \n}, \"allergens\": [\n        {\n            \"id\": \"7\",\n            \"name\": \"fish\"\n    },\n  {\n            \"id\": \"8\",\n            \"name\": \"mango\"\n    }\n  ] }\n"
+            }
+          }
+        }
+      },
+        "delete": {
+        "tags": [
+          "dishes"
+        ],            
+        "operationId": "deleteDish",
+        "summary": "Delete dish",
+        "description": "Deletes a dish with a specific ID.\n",
+        "produces": [],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          }
+        }
+      },
+      "patch": {
+         "tags": [
+          "dishes"
+        ],
+        "operationId": "updateDish",
+        "summary": "Update dish",
+        "description": "Updates a dish with a specific ID.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n  \"id\": \"1\",\n  \"name\": \"sashimi\",\n   \"price\": 200.0,\n   \"taste\": \"salty\",\n   \"cuisine\": \"Japan\",\n   \"type\": {\n \"id\": \"3\",\n  \"name\": \"large\",\n  \"weight\": \"400\"\n \n}, \"allergens\": [\n        {\n            \"id\": \"7\",\n            \"name\": \"fish\"\n    },\n  {\n            \"id\": \"8\",\n            \"name\": \"mango\"\n    }\n  ] }\n"
+            }
+          }
+        }
+      }
+    },
+      "/dishes/{dishId}/allergens/{allergenId}": {
+         "parameters": [
+        {
+          "name": "dishId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The account ID of the owner of the specified instance.\n"
+        },
+         {
+          "name": "allergenId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The account ID of the owner of the specified instance.\n"
+        }
+      ],
+         "put": {
+         "tags": [
+          "dishes"
+        ],
+        "operationId": "putDishAllergen",
+        "summary": "Add allergen to a dish",
+        "description": "Adds specified allergen to a chosen dish.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          }
+        }
+      },
+       "delete": {
+        "tags": [
+          "dishes"
+        ],            
+        "operationId": "deleteDishAllergen",
+        "summary": "Delete allergen from a dish",
+        "description": "Deletes specified allergen from a chosen dish.\n",
+        "produces": [],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          }
+        }
+      }
+    },
+     "/dishes/without": {
+        "get": {
+        "tags": [
+          "dishes"
+        ],
+        "operationId": "getDishWithout",
+        "summary": "Get dish without allergens",
+        "description": "Retrieves all dishes without specified allergens.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n    \"dishes\": [\n {\n  \"id\": \"1\",\n  \"name\": \"sushi\",\n   \"price\": 200.0,\n   \"taste\": \"salty\",\n   \"cuisine\": \"Japan\",\n   \"type\": {\n \"id\": \"3\",\n  \"name\": \"large\",\n  \"weight\": \"400\"\n \n}, \"allergens\": [\n        {\n            \"id\": \"7\",\n            \"name\": \"fish\"\n    },\n  {\n            \"id\": \"8\",\n            \"name\": \"mango\"\n    }\n  ] }\n  ]\n}"
+            }
+          }
+        }
+      }
+    },
+    "/dishes/type/{typeId}": { 
+         "parameters": [
+        {
+          "name": "typeId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The account ID of the owner of the specified instance.\n"
+        }
+      ],
+        "get": {
+        "tags": [
+          "dishes"
+        ],
+        "operationId": "getDishByType",
+        "summary": "Get dish with type",
+        "description": "Retrieves all dishes of a specified type.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "examples": {
+              "application/json": "{\n    \"dishes\": [\n {\n  \"id\": \"1\",\n  \"name\": \"sushi\",\n   \"price\": 200.0,\n   \"taste\": \"salty\",\n   \"cuisine\": \"Japan\",\n   \"type\": {\n \"id\": \"3\",\n  \"name\": \"large\",\n  \"weight\": \"400\"\n \n}, \"allergens\": [\n        {\n            \"id\": \"7\",\n            \"name\": \"fish\"\n    },\n  {\n            \"id\": \"8\",\n            \"name\": \"mango\"\n    }\n  ] }\n  ]\n}"
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
